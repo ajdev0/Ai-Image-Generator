@@ -7,7 +7,7 @@ export default {
         desktop: "1280",
       },
       backgroundImage: {
-        "custom-bg": "url('./src/assets/bg.jpg')",
+        "custom-bg": "url('https://artyimg.netlify.app/bg.jpg')",
       },
       fontFamily: {
         jersey: ["Jersey 15", "sans-serif"],

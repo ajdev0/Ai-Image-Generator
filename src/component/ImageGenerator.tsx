@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import image from "../assets/image-1.png";
 
 type Props = {};
 
@@ -9,6 +10,8 @@ const ImageGenerator: React.FC<Props> = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const imageGenerator = async () => {
+    setLoading(true);
+
     const options = {
       method: "POST",
       url: "https://api.edenai.run/v2/image/generation",
@@ -26,7 +29,6 @@ const ImageGenerator: React.FC<Props> = () => {
     axios
       .request(options)
       .then((response) => {
-        setLoading(true);
         if (response.data) {
           setImg(response?.data?.replicate?.items[0]?.image_resource_url);
           setLoading(false);
@@ -69,7 +71,7 @@ const ImageGenerator: React.FC<Props> = () => {
       </div>
       <div className="flex-1">
         <img
-          src={img || "/image-1.png"}
+          src={image}
           className={`w-[280px] h-[270px] desktop:w-[512px] desktop:h-[512px] md:w-[412px] md:h-[412px] rounded object-cover ${
             loading ? "hidden" : "visible"
           }`}
