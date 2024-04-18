@@ -73,7 +73,7 @@ const ImageGenerator: React.FC<Props> = () => {
         <img
           src={image}
           className={`w-[280px] h-[270px] desktop:w-[512px] desktop:h-[512px] md:w-[412px] md:h-[412px] rounded object-cover ${
-            loading ? "hidden" : "visible"
+            loading || img !== "" ? "hidden" : "visible"
           }`}
         />
         {loading ? (
